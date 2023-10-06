@@ -6,90 +6,37 @@ namespace Day_8Practice
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Enter string : ");
-            string s = Console.ReadLine();
-            Console.WriteLine("Enter LowerCase : ");
-            string s1 = Console.ReadLine();
-            Console.WriteLine("Enter Html Tags : ");
-            string s2 = Console.ReadLine();
-            Console.WriteLine("Enter string to find Number Of Occurences:");
-            string s3 = Console.ReadLine();
-            Console.WriteLine("Enter File Name: ");
-            string s4 = Console.ReadLine();
-            Console.WriteLine("Enter Website Address: ");
-            string s5 = Console.ReadLine();
-            string pattern1 = "^[a]{1}[b]{2,3}$";
-            string pattern2 = "^[a-z]{4,}[_]{1}$";
-            string pattern3 = "<([a-z]+)(?![^>]*/>)[^>]*";
-            string pattern4 = "fox(es)?";
-            string pattern5 = "^[^\\s]+\\.(jpg|jpeg|png|gif|bim)$";
-            string pattern6 = "(https:\\/\\/www\\.|http:\\/\\/www\\.|https:\\/\\/|http:\\/\\/)?[a-zA-Z0-9]{2,}(\\.[a-zA-Z0-9]{2,})(\\.[a-zA-Z0-9]{2,})?";
-            Regex regex = new Regex(pattern1);
-            Regex regex1 = new Regex(pattern2);
-            Regex regex2 = new Regex(pattern3);
-            Regex regex3 = new Regex(pattern5);
-            Regex regex4 = new Regex(pattern6);
-            if (regex.IsMatch(s))
+            Console.WriteLine("1)Enter String \n2)LowerCase Alphabet \n3)Html Tags \n4)Number Of Occurences \n5)Image File Extension \n6)Website Address");
+            int option = int.Parse(Console.ReadLine());
+            while (true)
             {
-                Console.ForegroundColor = ConsoleColor.Green;
-                Console.WriteLine("Valid String");
-                Console.ResetColor();
-            }
-            else
-            {
-                Console.ForegroundColor = ConsoleColor.Red;
-                Console.WriteLine("Invalid String");
-                Console.ResetColor();
-            }
-            if (regex1.IsMatch(s1))
-            {
-                Console.ForegroundColor = ConsoleColor.Green;
-                Console.WriteLine("Valid LowerCase");
-                Console.ResetColor();
-            }
-            else
-            {
-                Console.ForegroundColor = ConsoleColor.Red;
-                Console.WriteLine("Invalid LowerCase");
-                Console.ResetColor();
-            }
-            if (regex2.IsMatch(s2))
-            {
-                Console.ForegroundColor = ConsoleColor.Green;
-                Console.WriteLine("Valid Html Tags");
-                Console.ResetColor();
-            }
-            else
-            {
-                Console.ForegroundColor = ConsoleColor.Red;
-                Console.WriteLine("Invalid Html Tags");
-                Console.ResetColor();
-            }
-            int count = Regex.Matches(s3, pattern4).Count;
-            Console.WriteLine("There are "+count+" Occurences");
-            if (regex3.IsMatch(s4))
-            {
-                Console.ForegroundColor = ConsoleColor.Green;
-                Console.WriteLine("Valid File Name");
-                Console.ResetColor();
-            }
-            else
-            {
-                Console.ForegroundColor = ConsoleColor.Red;
-                Console.WriteLine("Invalid File Name");
-                Console.ResetColor();
-            }
-            if (regex4.IsMatch(s5))
-            {
-                Console.ForegroundColor = ConsoleColor.Green;
-                Console.WriteLine("Valid Website Address");
-                Console.ResetColor();
-            }
-            else
-            {
-                Console.ForegroundColor = ConsoleColor.Red;
-                Console.WriteLine("Invalid Website Address");
-                Console.ResetColor();
+                switch (option)
+                {
+                    case 1:
+                        String str = new String();
+                        str.checkstring();
+                        break;
+                    case 2:
+                        LowerCase lower = new LowerCase();
+                        lower.CheckLowerCase();
+                        break;
+                    case 3:
+                        HtmlTags html = new HtmlTags();
+                        html.CheckHtmlTags();
+                        break;
+                    case 4:
+                        NumberofOccurences numberof = new NumberofOccurences();
+                        numberof.CheckNumberofOccurences();
+                        break;
+                    case 5:
+                        ImageFileExtension image = new ImageFileExtension();
+                        image.CheckImageFileExtension();
+                        break;
+                    case 6:
+                        WebsiteAddress website = new WebsiteAddress();
+                        website.CheckWebsiteAddress();
+                        break;
+                }
             }
         }
     }
